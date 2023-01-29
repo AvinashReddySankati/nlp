@@ -13,3 +13,10 @@ print("Phrase count of ‘artificial intelligence’ is:",phrase_count)
 from textblob import Word
 w = Word("running")
 print(w.lemmatize())
+
+from textblob import TextBlob
+blob = TextBlob("Simplilearn is one of the world’s leading certification training providers."
+           "We partner with companies and individuals to address their unique needs."
+           "We provide training and coaching that helps working professionals achieve their career goals.")
+print(blob.words)
+
