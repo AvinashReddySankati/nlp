@@ -9,3 +9,7 @@ print("Word count of 'the' is: ", word_count)
 #phrase count
 phrase_count = textblob_obj.noun_phrases.count('world’s leading')
 print("Phrase count of ‘artificial intelligence’ is:",phrase_count)
+
+from textblob import Word
+w = Word("running")
+print(w.lemmatize())
