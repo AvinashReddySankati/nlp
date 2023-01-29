@@ -17,3 +17,6 @@ pos_tags = nltk.pos_tag(words)
 noun_words = [word for word, pos in pos_tags if pos == 'NN']
 
 print("Noun words:", noun_words)
+
+##Pending
+#Use this noun keyword to find similar documents
