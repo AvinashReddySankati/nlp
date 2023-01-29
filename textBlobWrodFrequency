@@ -1,0 +1,11 @@
+#Textb lob
+#Loading library
+from textblob import TextBlob
+#Textblob object
+textblob_obj = TextBlob(""" Simplilearn is one of the world’s leading certification training providers.""")
+#Counting word ‘the’
+word_count = textblob_obj.word_counts['the']
+print("Word count of 'the' is: ", word_count)
+#phrase count
+phrase_count = textblob_obj.noun_phrases.count('world’s leading')
+print("Phrase count of ‘artificial intelligence’ is:",phrase_count)
