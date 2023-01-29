@@ -5,12 +5,12 @@
 
 import nltk
 
-
+nltk.download('averaged_perceptron_tagger')
+nltk.download('punkt')  #Added to resolve the punkt error
 
 sentence = "Parts-of-speech plays a very crucial role in creating a grammatically correct sentence."
 
 words = nltk.word_tokenize(sentence)
-print(words)
 
 pos_tags = nltk.pos_tag(words)
 
