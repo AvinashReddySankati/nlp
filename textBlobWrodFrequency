@@ -20,3 +20,4 @@ blob = TextBlob("Simplilearn is one of the world’s leading certification train
            "We provide training and coaching that helps working professionals achieve their career goals.")
 print(blob.words)
 
+print(blob.sentences)
