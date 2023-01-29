@@ -1,0 +1,19 @@
+#Problem Statement: Parts-of-speech plays a very crucial role in creating a grammatically correct sentence.
+#To understand the sentence structure we can use POS tag identification techniques.
+#Find a noun word from the given sentence and use this keyword to find similar documents.
+
+
+import nltk
+
+
+
+sentence = "Parts-of-speech plays a very crucial role in creating a grammatically correct sentence."
+
+words = nltk.word_tokenize(sentence)
+print(words)
+
+pos_tags = nltk.pos_tag(words)
+
+noun_words = [word for word, pos in pos_tags if pos == 'NN']
+
+print("Noun words:", noun_words)
