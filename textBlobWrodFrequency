@@ -26,3 +26,8 @@ sentence = TextBlob('Get Certified Get Ahead Digital economy training Driving in
 print (sentence.words)
 print ("Singularize form of 2nd word: ", sentence.words[1].singularize())
 print ("Pulralize form of last word: ", sentence.words[- 1].pluralize())
+
+from textblob import TextBlob
+blob = TextBlob("Simplilearn is one of the world’s leading certification training providers.")
+for word, pos in blob.tags:
+    print (word, pos)
