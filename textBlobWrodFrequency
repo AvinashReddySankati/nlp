@@ -46,3 +46,7 @@ print ("Polarity: ", sentiment_polarity)
 
 b = TextBlob("Simplilearn isi one of the world’s leading certification training providers.")
 print(b.correct())
+
+from textblob import Word
+w = Word('proviler')
+w.spellcheck()
