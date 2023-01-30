@@ -43,3 +43,6 @@ sentiment_score = textblob_obj.sentiment
 sentiment_polarity = textblob_obj.sentiment.polarity
 print ("Score: ", sentiment_score)
 print ("Polarity: ", sentiment_polarity)    
+
+b = TextBlob("Simplilearn isi one of the world’s leading certification training providers.")
+print(b.correct())
