@@ -1,0 +1,8 @@
+from vocabulary.vocabulary import Vocabulary as vb
+
+vb.antonym("boy")
+vb.synonym(“girl”)
+vb.part_of_speech("boy")
+vb.pronunciation("hippopotamus")
+vb.hyphenation("hippopotamus")
+help(vb.translate)
