@@ -31,3 +31,15 @@ from textblob import TextBlob
 blob = TextBlob("Simplilearn is one of the world’s leading certification training providers.")
 for word, pos in blob.tags:
     print (word, pos)
+    
+    
+#Textblob
+#Loading library
+from textblob import TextBlob
+textblob_obj = TextBlob("Simplilearn is one of the world’s leading certification training providers.")
+#Find sentiment score
+sentiment_score = textblob_obj.sentiment
+#Find sentiment polarity 
+sentiment_polarity = textblob_obj.sentiment.polarity
+print ("Score: ", sentiment_score)
+print ("Polarity: ", sentiment_polarity)    
