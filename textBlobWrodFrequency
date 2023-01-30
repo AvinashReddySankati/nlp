@@ -54,3 +54,6 @@ w.spellcheck()
 en_blob = TextBlob('Simplilearn is one of the world’s leading certification training providers.')
 en_blob.detect_language() 
 en_blob.translate(to='es’)
+ 
+blob = TextBlob("Simplilearn is one of the world’s leading certification training providers.")
+blob.ngrams(n=3)       
