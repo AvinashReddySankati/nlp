@@ -21,3 +21,8 @@ blob = TextBlob("Simplilearn is one of the world’s leading certification train
 print(blob.words)
 
 print(blob.sentences)
+
+sentence = TextBlob('Get Certified Get Ahead Digital economy training Driving innovation and accelerating career')
+print (sentence.words)
+print ("Singularize form of 2nd word: ", sentence.words[1].singularize())
+print ("Pulralize form of last word: ", sentence.words[- 1].pluralize())
