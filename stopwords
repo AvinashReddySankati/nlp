@@ -1,0 +1,17 @@
+from sklearn.feature_extraction import stop_words
+
+stopwords = list(stop_words)
+
+print("Stop Words from SKLearn:",stopwords)
+
+#NLTK
+import nltk.corpus
+from nltk.corpus import stopwords
+
+nltk.download('stopwords')
+print(len(stopwords.words('english')))
+
+#Spacy
+import spacy
+nlp = spacy.load("en_core_web_sm")
+print(len(list(nlp.Defaults.stop_words)))

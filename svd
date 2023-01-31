@@ -1,0 +1,67 @@
+import numpy as np
+from sklearn.datasets import fetch_20newsgroups
+from sklearn import decomposition
+from scipy   import linalg
+import matplotlib.pyplot as plt
+
+np.set_printoptions(suppress=True)
+
+categories = ['alt.atheism', 'talk.religion.misc', 'comp.graphics', 'sci.space']
+remove = ('headers', 'footers', 'quotes')
+newsgroups_train = fetch_20newsgroups(subset='train', categories=categories, remove=remove)
+newsgroups_test = fetch_20newsgroups(subset='test', categories=categories, remove=remove)
+
+newsgroups_train.filenames.shape, newsgroups_train.target.shape
+
+print("\n".join(newsgroups_train.data[:3]))
+np.array(newsgroups_train.target_names)[newsgroups_train.target[:3]]
+newsgroups_train.target[:10]
+num_topics, num_top_words = 6, 8
+
+import nltk
+nltk.download('wordnet')
+from nltk import stem
+
+wnl = stem.WordNetLemmatizer()
+porter = stem.porter.PorterStemmer()
+
+word_list = ['feet', 'foot', 'foots', 'footing']
+[wnl.lemmatize(word) for word in word_list]
+
+[porter.stem(word) for word in word_list]
+
+#Using Spacy
+import spacy
+from spacy.lemmatizer import Lemmatizer
+lemmatizer = Lemmatizer()
+
+[lemmatizer.lookup(word) for word in word_list]
+nlp = spacy.load("en_core_web_sm")
+sorted(list(nlp.Defaults.stop_words))[:20]
+
+#Data Processing
+from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
+import nltk
+vectorizer = CountVectorizer(stop_words='english') 
+vectors = vectorizer.fit_transform(newsgroups_train.data).todense() # (documents, vocab)
+vectors.shape #, vectors.nnz / vectors.shape[0], row_means.shape
+
+print(len(newsgroups_train.data), vectors.shape)
+vocab = np.array(vectorizer.get_feature_names())
+vocab.shape
+U, s, Vh = linalg.svd(vectors, full_matrices=False)
+print(U.shape, s.shape, Vh.shape)
+s[:4]
+np.diag(np.diag(s[:4]))
+plt.plot(s);
+
+#Analyse below code
+num_top_words=8
+
+def show_topics(a):
+    top_words = lambda t: [vocab[i] for i in np.argsort(t)[:-num_top_words-1:-1]]
+    topic_words = ([top_words(t) for t in a])
+    return [' '.join(t) for t in topic_words]
+
+show_topics(Vh[:10])
+

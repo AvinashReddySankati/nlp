@@ -1,0 +1,15 @@
+import polyglot
+from polyglot.text import Text, Word
+
+#Tokenization
+zen = Text(" Simplilearn is one of the world’s leading certification training providers.” ”We partner with companies and individuals to address their unique needs, providing training and coaching that helps working professionals achieve their career goals.")
+print(zen.words)
+print (zen.sentences)
+
+text = Text(u"Depois de um pouco de educação indistinta foi decidido que ele deveria ir para a Inglaterra para estudar Direito na University College.")
+print("{:<16}{}".format("Word", "POS Tag")+"\n"+"-"*30) 
+
+for word, tag in text.pos_tags: 
+    print(u"{:<16}{:>2}".format(word, tag))
+
+print(text.entities)
